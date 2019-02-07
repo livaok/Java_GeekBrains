@@ -85,7 +85,7 @@ public class Program {
 		System.out.println(String.format("Максимум массива %d", max));
 	}
 
-	private static boolean checkBalance(int[] arrays) {
+	private static void checkBalance(int[] arrays) {
 		int sum = 0;
 		int sumArr = 0;
 
@@ -96,33 +96,43 @@ public class Program {
 		int halfSum = sum / 2;
 
 		while (sumArr < halfSum) {
+
 			for (int element : arrays) {
 				sumArr += element;
 				if (sumArr == halfSum) {
 					break;
 				}
 			}
-		}
 
-		return sumArr == halfSum;
+			System.out.println(sumArr == halfSum);
+		}
 	}
 
 	private static void checkBalanceVarTwo(int[] arrays) {
-		int j = arrays.length - 1;
-		int i = 0;
-		int sumOfI = arrays[i];          //допущение
+		int sumLeft = 0;
+		int sumRight = 0;
 
-
-		while (j - i != 1){
-			if (arrays[i] < arrays[j]) {
-				sumOfI += arrays[i + 1];
-				i++;
+		for (int i = 0, j = arrays.length - 1; i <= j; ) {
+			if (sumLeft == 0) {
+				sumLeft += arrays[i++];
+				continue;
 			}
-
+			if (sumRight == 0) {
+				sumRight += arrays[j--];
+				continue;
+			}
+			if (sumLeft > sumRight) {
+				sumRight += arrays[j--];
+				continue;
+			}
+			if (sumLeft < sumRight) {
+				sumLeft += arrays[i++];
+			}
+			if (sumLeft == sumRight) {
+				break;
+			}
 		}
-		
-
-
+		System.out.println(sumLeft == sumRight);
 	}
 
 	private static void moveArray(int[] arrays, int n) {
@@ -169,6 +179,7 @@ public class Program {
 
 	private static void replaceElementsArrays(String[] arrays) {
 		String[] newArrays = new String[arrays.length];
+
 		for (int i = 0; i < arrays.length; i++) {
 			newArrays[i] = arrays[arrays.length - 1 - i];
 		}
@@ -206,9 +217,11 @@ public class Program {
 		int[] a = new int[n];
 		a[0] = 1;
 		a[1] = 1;
+
 		for (int i = 2; i < n; i++) {
 			a[i] = a[i - 1] + a[i - 2];
 		}
+
 		System.out.println(Arrays.toString(a));
 		System.out.println(String.format("Данный массив запишет %d чисел Фибоначчи", n));
 	}
@@ -216,6 +229,7 @@ public class Program {
 	private static void checkMethodLogic() {
 		int[] a = {1, 2, 3};
 		int[] b = {1, 2, 3};
+
 		System.out.println(String.format("Сравнение ссылок на массивы, ссылки на которые не равны, дает %s", a == b));
 	}
 
@@ -223,36 +237,37 @@ public class Program {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Введите число раздач карт ");
 		int n = scanner.nextInt();
+		Random random = new Random();
 		final String[] CARDS = {"A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"};
 		String[][] deck = new String[n][5];
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < 5; j++) {
-				deck[i][j] = CARDS[new Random().nextInt(CARDS.length - 1)];
+				deck[i][j] = CARDS[random.nextInt(CARDS.length - 1)];
 			}
 		}
+
 		System.out.println(String.format("Ваша раздача: %s", Arrays.deepToString(deck)));
 	}
 
 	public static void main(String[] args) {
-//		replace0With1();
-//		fillElementsMultiplesOf3();
-//		numLessThan6Times2();
-//		fillDiagonalWith1();
-//		findArrMinMax(makeArrays(5));
-		int[] array = {1, 1, 1, 1, 4};
-//		System.out.println(checkBalance(array));
-//		moveArray(array, -3);
-//		int[] a = {2, 5, 7, 4};
-//		int[] b = {3, 7, 8, 5, 8};
-//		System.out.println(checkEuclideanDistance(a, b));
-//		String[] arrayOfChar = {"a", "b", "c"};
-//		replaceElementsArrays(arrayOfChar);
-//		char[][] arrayOfSymbols = {{' ', '*', '*'}, {'*', ' ', ' '}, {'*', '*', '*'}};
-//		contentArrays(arrayOfSymbols);
-//		checkMethodFibonachchi();
-//		checkMethodLogic();
-//		deal();
-		checkBalanceVarTwo(array);
+		replace0With1();
+		fillElementsMultiplesOf3();
+		numLessThan6Times2();
+		fillDiagonalWith1();
+		findArrMinMax(makeArrays(5));
+		checkBalance(new int[]{2, 3, 5});
+		checkBalanceVarTwo(new int[]{1, 1, 1, 1, 4});
+		moveArray(new int[]{6, 8, 3, 8, 9, 5, 3}, -3);
+		int[] a = {2, 5, 7, 4};
+		int[] b = {3, 7, 8, 5, 8};
+		System.out.println(checkEuclideanDistance(a, b));
+		String[] arrayOfChar = {"a", "b", "c"};
+		replaceElementsArrays(arrayOfChar);
+		char[][] arrayOfSymbols = {{' ', '*', '*'}, {'*', ' ', ' '}, {'*', '*', '*'}};
+		contentArrays(arrayOfSymbols);
+		checkMethodFibonachchi();
+		checkMethodLogic();
+		deal();
 	}
 }
