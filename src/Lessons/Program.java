@@ -11,13 +11,13 @@ public class Program {
 	private static void replace0With1() {
 		int[] arr = {1, 0, 1, 1, 0, 0, 1, 0};
 
-		System.out.println(String.format("�������� ������ %s", Arrays.toString(arr)));
+		System.out.println(String.format("Исходный массив %s", Arrays.toString(arr)));
 
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = arr[i] == 0 ? 1 : 0;
 		}
 
-		System.out.println(String.format("�������� ������ %s", Arrays.toString(arr)));
+		System.out.println(String.format("Обратный массив %s", Arrays.toString(arr)));
 	}
 
 	private static void fillElementsMultiplesOf3() {
@@ -45,14 +45,14 @@ public class Program {
 	private static void fillDiagonalWith1() {
 		int[][] arr = new int[5][5];
 
-		System.out.println(String.format("�������� ������ %s", Arrays.deepToString(arr)));
+		System.out.println(String.format("Исходный массив %s", Arrays.deepToString(arr)));
 
 		for (int i = 0; i < arr.length; i++) {
 			arr[i][i] = 1;
 			arr[i][(arr.length - 1) - i] = 1;
 		}
 
-		System.out.println(String.format("����� ������ � ���������� 1: \n%s", Arrays.deepToString(arr)));
+		System.out.println(String.format("Новый массив с диагональю 1: \n%s", Arrays.deepToString(arr)));
 	}
 
 	private static int[] makeArrays(int n) {
@@ -67,7 +67,7 @@ public class Program {
 	}
 
 	private static void findArrMinMax(int[] arrays) {
-		System.out.println(String.format("�������� ������ %s", Arrays.toString(arrays)));
+		System.out.println(String.format("Исходный массив %s", Arrays.toString(arrays)));
 
 		int min = arrays[0];
 		int max = arrays[0];
@@ -81,8 +81,8 @@ public class Program {
 			}
 		}
 
-		System.out.println(String.format("������� ������� %d", min));
-		System.out.println(String.format("�������� ������� %d", max));
+		System.out.println(String.format("Минимум массива %d", min));
+		System.out.println(String.format("Максимум массива %d", max));
 	}
 
 	private static void checkBalance(int[] arrays) {
@@ -151,7 +151,7 @@ public class Program {
 		System.out.println(Arrays.toString(additionalArray));
 	}
 
-	//�������������� �������
+	//дополнительные задания
 
 	private static double checkEuclideanDistance(int[] x, int[] y) {
 		int pow = 0;
@@ -173,6 +173,7 @@ public class Program {
 			}
 			sum = Math.sqrt(pow);
 		}
+
 		return sum;
 	}
 
@@ -187,7 +188,7 @@ public class Program {
 
 	//private static void a()
 	//{
-	//	int[] a                                 �� ���������� ����� �������
+	//	int[] a                                 не определена длина массива
 	//	for (int i = 0; i < 10; i++) {
 	//		a[i] = i*i;
 	//	}
@@ -200,10 +201,10 @@ public class Program {
 		for (int i = 0; i < arrays.length; i++) {
 			for (int j = 0; j < arrays[i].length; j++) {
 				if (arrays[i][j] == '*') {
-					contentArrays = contentArrays + "���������� �������� [" + i + "]" + "[" + j + "] " + valueTrue + "\n";
+					contentArrays = contentArrays + "Содержимое элемента [" + i + "]" + "[" + j + "] " + valueTrue + "\n";
 				}
 				if (arrays[i][j] == ' ') {
-					contentArrays = contentArrays + "���������� �������� [" + i + "]" + "[" + j + "] " + valueFalse + "\n";
+					contentArrays = contentArrays + "Содержимое элемента [" + i + "]" + "[" + j + "] " + valueFalse + "\n";
 				}
 			}
 		}
@@ -222,19 +223,19 @@ public class Program {
 		}
 
 		System.out.println(Arrays.toString(a));
-		System.out.println(String.format("������ ������ ������� %d ����� ���������", n));
+		System.out.println(String.format("Данный массив запишет %d чисел Фибоначчи", n));
 	}
 
 	private static void checkMethodLogic() {
 		int[] a = {1, 2, 3};
 		int[] b = {1, 2, 3};
 
-		System.out.println(String.format("��������� ������ �� �������, ������ �� ������� �� �����, ���� %s", a == b));
+		System.out.println(String.format("Сравнение ссылок на массивы, ссылки на которые не равны, дает %s", a == b));
 	}
 
 	private static void deal() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("������� ����� ������ ���� ");
+		System.out.println("Введите число раздач карт ");
 		int n = scanner.nextInt();
 		Random random = new Random();
 		final String[] CARDS = {"A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"};
@@ -246,7 +247,7 @@ public class Program {
 			}
 		}
 
-		System.out.println(String.format("���� �������: %s", Arrays.deepToString(deck)));
+		System.out.println(String.format("Ваша раздача: %s", Arrays.deepToString(deck)));
 	}
 
 	public static void main(String[] args) {
