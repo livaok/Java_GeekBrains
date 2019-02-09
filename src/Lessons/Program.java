@@ -69,25 +69,24 @@ public class Program {
 		Random random = new Random();
 		int indexOfWordOfComputer = random.nextInt(words.length);
 		String userWord = "###############";
-		//Scanner scanner = new Scanner(System.in);
-		//char litter = scanner.next().trim().charAt(0);
 		char[] charUserWorld = userWord.toCharArray();
 
-		for (int i = 0, j = 0; i < words[indexOfWordOfComputer].length(); i++, j++){
+		for (int i = 0, j = 0; i < words[indexOfWordOfComputer].length(); i++, j++) {
 			System.out.println("Введите букву");
 			Scanner scanner = new Scanner(System.in);
 			char litter = scanner.next().trim().charAt(0);
-			if(litter == words[indexOfWordOfComputer].trim().charAt(i)){
-				charUserWorld[j] = litter;
-				System.out.println(charUserWorld[j]);
+			for (int x = 0; x < words[indexOfWordOfComputer].length(); x++) {
+				if (litter == words[indexOfWordOfComputer].trim().charAt(x)) {
+					charUserWorld[x] = litter;
+				}
+				else
+					charUserWorld[j] = words[indexOfWordOfComputer].charAt(i);
 			}
+			System.out.println(charUserWorld);
+			
 		}
+		System.out.println(String.format("Игра окончена! Загаданное слово %s", words[indexOfWordOfComputer]));
 
-		//for (int i = 0, j = 0; i < (words[indexOfWordOfComputer]).length(); i++, j++){
-		//if (litter.equals(words[indexOfWordOfComputer].charAt(0))) {
-		//	charUserWorld[0] = litter.charAt(0);
-		//}
-		System.out.println(charUserWorld);
 	}
 
 	public static void main(String[] args) {
