@@ -1,4 +1,4 @@
-package Lessons;
+package ru.liva.lesson_2;
 
 import java.util.Arrays;
 import java.util.Random;
