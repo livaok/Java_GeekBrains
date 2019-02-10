@@ -1,4 +1,4 @@
-package Lessons;
+package ru.liva.lesson_1;
 
 /**
  * @author liva
