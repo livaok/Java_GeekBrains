@@ -1,4 +1,4 @@
-package Lessons;
+package ru.liva.lesson_3;
 
 import java.util.Random;
 import java.util.Scanner;
