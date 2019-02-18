@@ -6,6 +6,7 @@ import java.util.Scanner;
 /**
  * @author liva
  */
+
 public class Game_XO {
 	private static final int      SIZE      = 3;
 	private static final char     DOT_EMPTY = ' ';
@@ -14,11 +15,6 @@ public class Game_XO {
 	private static       char[][] map;
 	private static       Scanner  scanner   = new Scanner(System.in);
 	private static       Random   random    = new Random();
-	private static       int      count0    = 0;
-	private static       int      count1    = 0;
-	private static       int      count2    = 0;
-	private static       int      count3    = 0;
-	private static       int      count4    = 0;
 
 	private static void initMap() {
 		map = new char[SIZE][SIZE];
@@ -72,7 +68,7 @@ public class Game_XO {
 			y = random.nextInt(SIZE);
 		}
 		while (!isCellValid(x, y));
-		System.out.println("Компьютер походил x " + (x + 1) + " y " + (y + 1));
+		System.out.println(String.format("Компьютер походил x %d  y %d", (x + 1), (y + 1)));
 		map[x][y] = DOT_O;
 	}
 
@@ -106,11 +102,12 @@ public class Game_XO {
 
 
 	private static boolean checkWin0(char DOT) {
+		int countMax = 0;
 		for (int i = 0; i < SIZE; i++) {
-			count0 = 0;
-			count1 = 0;
-			count2 = 0;
-			count3 = 0;
+			int count0 = 0;
+			int count1 = 0;
+			int count2 = 0;
+			int count3 = 0;
 			for (int j = 0; j < SIZE; j++) {
 				if (map[i][j] == DOT) {
 					count0++;
@@ -118,19 +115,19 @@ public class Game_XO {
 				if (map[j][i] == DOT) {
 					count1++;
 				}
-				if (map[i][j] == DOT && i == j) {
+				if (map[j][j] == DOT) {
 					count2++;
 				}
 				if (map[j][SIZE - 1 - j] == DOT) {
 					count3++;
 				}
 			}
-			count4 = Math.max(count0, Math.max(count1, Math.max(count2, count3)));
-			if (count4 == 3) {
+			countMax = Math.max(count0, Math.max(count1, Math.max(count2, count3)));
+			if (countMax == 3) {
 				break;
 			}
 		}
-		return (count4 == 3);
+		return (countMax == 3);
 	}
 
 	private static boolean isMapFull() {
