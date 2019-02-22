@@ -29,4 +29,11 @@ public class Dog extends Animal {
 		super.jump(hightJump);
 		return (hightJump <= 0.5);
 	}
+
+	@Override
+	public boolean run(float lenthRun, float maxLenthRun) {
+		setLengthRun(lenthRun);
+		setMaxLengthRun(maxLenthRun);
+		return super.run(lenthRun, maxLenthRun);
+	}
 }
