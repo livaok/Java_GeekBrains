@@ -31,9 +31,8 @@ public class Dog extends Animal {
 	}
 
 	@Override
-	public boolean run(float lenthRun, float maxLenthRun) {
-		setLengthRun(lenthRun);
-		setMaxLengthRun(maxLenthRun);
-		return super.run(lenthRun, maxLenthRun);
+	public boolean run(float lengthRun, float maxLengthRun) {
+		setMaxLengthRun(maxLengthRun);
+		return super.run(lengthRun, maxLengthRun);
 	}
 }

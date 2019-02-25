@@ -82,6 +82,7 @@ public class Animal {
 	}
 
 	public boolean run(float lengthRun, float maxLengthRun) {
+		setLengthRun(lengthRun);
 		this.lengthRun = getLengthRun();
 		this.maxLengthRun = getMaxLengthRun();
 		return lengthRun < maxLengthRun;
@@ -91,6 +92,6 @@ public class Animal {
 		System.out.println("Возможность животным " + name + " пробежать " + getLengthRun() + " метров - " + run(getLengthRun()));
 		System.out.println("Возможность животным " + name + " проплыть " + getLengthSwim() + " метров - " + swim(getLengthSwim()));
 		System.out.println("Возможность животным " + name + " прыгнуть на " + getHightJump() + " метров - " + jump(getHightJump()));
-		System.out.println("Возможность животным " + name + " прыгнуть на " + getLengthRun() + " метров при max " + maxLengthRun + " метров - " + run(getLengthRun(), maxLengthRun));
+		System.out.println("Возможность животным " + name + " прыгнуть на " + getLengthRun() + " метров при max " + getMaxLengthRun() + " метров - " + run(getLengthRun(), getMaxLengthRun()));
 	}
 }

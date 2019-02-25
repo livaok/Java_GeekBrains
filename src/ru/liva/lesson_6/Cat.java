@@ -30,7 +30,8 @@ public class Cat extends Animal {
 	}
 
 	@Override
-	public void printInfo() {
+	public void printInfo()
+	{
 		super.printInfo();
 	}
 }

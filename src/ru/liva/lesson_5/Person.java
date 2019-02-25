@@ -1,5 +1,8 @@
 package ru.liva.lesson_5;
 
+import ru.liva.lesson_6.Animal;
+import ru.liva.lesson_6.Cat;
+
 /**
  * @author liva
  */
