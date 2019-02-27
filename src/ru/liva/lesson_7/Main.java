@@ -4,6 +4,7 @@ package ru.liva.lesson_7;
  * @author liva
  */
 public class Main {
+
 	public static void main(String[] args) {
 		Plate plate = new Plate(500);
 
@@ -17,8 +18,9 @@ public class Main {
 
 		for (Cat cat : cats) {
 			cat.eat(plate);
-			plate.infoPlate();
+			plate.addFood(50);
 			cat.infoSatiety();
+			plate.infoPlate();
 		}
 	}
 }
